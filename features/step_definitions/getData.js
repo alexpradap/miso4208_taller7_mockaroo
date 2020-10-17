@@ -17,8 +17,11 @@ module.exports = {
           if (j < headers.length - 1) {
             value = value + ", ";
           }
+          else {
+            value = value  + '}';
+          }
         }
-        dataObj.values.push(JSON.parse(value + '}'));
+        dataObj.values.push(JSON.parse(value));
       }
     }
     return dataObj;
