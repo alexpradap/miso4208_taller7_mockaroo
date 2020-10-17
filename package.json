@@ -1,0 +1,24 @@
+{
+  "name": "miso4208_taller7_mockaroo",
+  "version": "1.0.0",
+  "description": "Desarrollo Taller #7 Grupo 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexpradap/miso4208_taller7_mockaroo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexpradap/miso4208_taller7_mockaroo/issues"
+  },
+  "homepage": "https://github.com/alexpradap/miso4208_taller7_mockaroo#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0-rc.0",
+    "cucumber": "^7.0.0-rc.0",
+    "puppeteer": "^5.3.1"
+  }
+}
