@@ -1,12 +1,13 @@
 const https = require('https')
+var dataObj;
 
 module.exports = {
-  getData: function () {
+  loadData: function () {
     let textResponse = fromLocal();
     //let textResponse = fromApi();
     var rows = textResponse.split(/\r\n|\n/);
     var headers = rows[0].split(',');
-    var dataObj = JSON.parse('{"values": []}');
+    dataObj = JSON.parse('{"values": []}');
 
     for (let i = 1; i < rows.length; i++) {
       let data = rows[i].split(',');
@@ -24,10 +25,19 @@ module.exports = {
         dataObj.values.push(JSON.parse(value));
       }
     }
-    return dataObj;
+  },
+
+  getValues: function () {
+    return dataObj.values[getRandomInt(0, 4)];
   }
 }
-  
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
 function fromApi() {
   var options={
     host:"my.api.mockaroo.com",
@@ -58,15 +68,14 @@ function fromApi() {
 
 function fromLocal() {
   csv = `user_name,email,password
-lromei0,redmonston0@wsj.com,xgNbB2m5Z
-adranfield1,schatell1@slate.com,6xLjb8a
-jtremontana2,kperegrine2@msn.com,H2RvOJ
-csydry3,gpalfreeman3@hud.gov,2Y60hP6OeLC
-sgoodding4,kmchirrie4@economist.com,DyiZwmbrwjN1
-acuddehy5,plande5@purevolume.com,4NHO0mM2GEp
-lblais6,lmoores6@hc360.com,c1agQiYEFrl
-abrinded7,ohallt7@hc360.com,upOtaFQ
-kbresner8,slampens8@prlog.org,vqG1Cl7Cr2XX
-dtrout9,hswinglehurst9@theatlantic.com,uhgo9ZQ9X4iU`;
+grosoni0,pdudlestone0@whitehouse.gov,KUvYlHrM+415
+mdougill1,kcarnihan1@symantec.com,AJafdUpl+355
+crainsdon2,fboor2@google.com.br,ZewdBzIc+309
+mscouse3,zambrodi3@fastcompany.com,BkfAWcEC+236
+spetyt4,aleverington4@cocolog-nifty.com,IkVtdZND+595
+dpegden5,bpetr5@ask.com,GALTqFbg+855
+marling6,omallison6@nymag.com,YpcGXKkx+866
+bdisman7,genglish7@infoseek.co.jp,ZapTOArs+697
+relster8,botridge8@drupal.org,OtTQaJcC+106`;
   return csv;
 }

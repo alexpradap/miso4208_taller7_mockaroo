@@ -33,5 +33,4 @@ Feature: Sign up to habitica
         And I fill in the email field
         And I fill in the password field
         And I enter another password in the confirm password field
-        And I click on sign up button
         Then the sign up button should be disabled
