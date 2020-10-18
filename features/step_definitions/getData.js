@@ -3,8 +3,8 @@ var dataObj;
 
 module.exports = {
   loadData: function () {
-    let textResponse = fromLocal();
-    //let textResponse = fromApi();
+    //let textResponse = fromLocal();
+    let textResponse = fromApi();
     var rows = textResponse.split(/\r\n|\n/);
     var headers = rows[0].split(',');
     dataObj = JSON.parse('{"values": []}');
